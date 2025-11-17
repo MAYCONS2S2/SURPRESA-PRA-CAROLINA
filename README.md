@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
             background: #ffdde6;
             font-family: Arial, sans-serif;
             text-align: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .card {
@@ -48,6 +49,7 @@
         .nao {
             background: #999;
             color: white;
+            position: absolute;
         }
 
         .music {
@@ -77,21 +79,34 @@
         <h3>Você aceitaria namorar comigo?</h3>
 
         <button class="sim" onclick="respostaSim()">Sim 💖</button>
-        <button class="nao" id="nao" onclick="contadorNao()">Não 😢</button>
+        <button class="nao" id="nao" onclick="fugir()">Não 😢</button>
 
         <p id="resultado" style="margin-top:20px; font-size:20px; color:#d6336c;"></p>
+        <p id="extraMsg" style="margin-top:15px; font-size:18px; color:#c70039;"></p>
 
         <div id="musicButton"></div>
     </div>
 
     <script>
-        let cliquesNao = 0;
+        let fugas = 0;
 
-        function contadorNao() {
-            cliquesNao++;
+        function fugir() {
+            let botao = document.getElementById("nao");
 
-            if (cliquesNao >= 7) {
-                document.getElementById("resultado").innerHTML =
+            let maxX = window.innerWidth - botao.offsetWidth - 20;
+            let maxY = window.innerHeight - botao.offsetHeight - 20;
+
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+
+            botao.style.left = x + "px";
+            botao.style.top = y + "px";
+
+            fugas++;
+
+            // MENSAGEM após 7 fugidas
+            if (fugas > 7) {
+                document.getElementById("extraMsg").innerHTML =
                     "Nossa, você não quer mesmo… aceita logo 🔪☠😍";
             }
         }
