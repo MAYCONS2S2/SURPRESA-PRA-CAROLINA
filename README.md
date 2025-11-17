@@ -62,7 +62,7 @@
         .heart {
             position: fixed;
             color: #ff5c8a;
-            font-size: 25px; /* tamanho médio */
+            font-size: 25px;
             animation: fall linear;
             pointer-events: none;
         }
@@ -100,20 +100,16 @@
             heart.classList.add("heart");
             heart.innerHTML = "❤";
             heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = Math.random() * 15 + 20 + "px"; // tamanho médio 20-35px
+            heart.style.fontSize = Math.random() * 15 + 20 + "px"; // tamanho médio
             heart.style.animationDuration = Math.random() * 3 + 3 + "s"; // 3-6s
             document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 6000);
+            setTimeout(() => heart.remove(), 6000);
         }
-
         setInterval(criarCoracao, 200); // corações contínuos
 
         // ==== Botão SIM ====
         document.getElementById("btnSim").addEventListener("click", () => {
-            window.open("https://www.tiktok.com/@fernandaphx/video/7367535233597459718", "_blank");
+            window.open("https://vt.tiktok.com/ZSfeqfQ6D/", "_blank");
         });
 
         // ==== Botão NÃO ====
