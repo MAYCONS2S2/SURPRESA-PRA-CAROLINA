@@ -64,6 +64,11 @@
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
 
+        /* Container para o TikTok */
+        #tiktok-container {
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 
@@ -78,6 +83,8 @@
         <button class="nao" id="nao" onclick="fugir()">Não 😢</button>
 
         <p id="resultado" style="margin-top:20px; font-size:20px; color:#d6336c;"></p>
+
+        <div id="tiktok-container"></div>
     </div>
 
     <script>
@@ -87,11 +94,12 @@
         function fugir() {
             let botao = document.getElementById("nao");
 
-            // Área visível da tela
-            let largura = window.innerWidth - 150;
-            let altura = window.innerHeight - 150;
+            // Área centralizada (dentro do card)
+            let card = document.querySelector('.card');
+            let largura = card.offsetWidth - botao.offsetWidth;
+            let altura = card.offsetHeight - botao.offsetHeight;
 
-            // Posição aleatória dentro da tela
+            // Posição aleatória dentro do card
             let x = Math.random() * largura;
             let y = Math.random() * altura;
 
@@ -111,6 +119,7 @@
             document.getElementById("resultado").innerHTML =
                 "Eu sabia que você diria sim, Sofia! 💕💍<br>Agora começa a nossa história!";
 
+            // Criar corações caindo
             setInterval(() => {
                 let heart = document.createElement("div");
                 heart.innerHTML = "❤";
@@ -121,6 +130,15 @@
                 document.body.appendChild(heart);
                 setTimeout(() => heart.remove(), 5000);
             }, 150);
+
+            // Inserir o TikTok embed
+            document.getElementById("tiktok-container").innerHTML = `
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@fernandaphx/video/7367535233597459718" data-video-id="7367535233597459718" style="max-width: 605px;min-width: 325px;">
+                <section>
+                    <a target="_blank" title="@fernandaphx" href="https://www.tiktok.com/@fernandaphx?refer=embed">@fernandaphx</a>
+                </section>
+            </blockquote>
+            <script async src="https://www.tiktok.com/embed.js"></script>`;
         }
 
     </script>
