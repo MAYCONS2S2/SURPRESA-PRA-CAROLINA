@@ -83,7 +83,7 @@
 <body>
 
     <div class="card">
-        <h2>Sofia...</h2>
+        <h2>CAROLINA...</h2>
         <h3>Eu queria te perguntar algo muito especial 💗</h3>
         <h3>Você aceitaria namorar comigo?</h3>
 
