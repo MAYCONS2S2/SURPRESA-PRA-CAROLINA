@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>surpresa pra minha lindia </title>
+    <title>surpresa pra minha lindia</title>
     <style>
         body {
             background: #ffdde6;
@@ -77,7 +77,6 @@
             font-size: 20px;
             color: #d6336c;
         }
-
     </style>
 </head>
 <body>
@@ -94,42 +93,36 @@
     </div>
 
     <script>
-        // ==== Corações caindo contínuos ====
         function criarCoracao() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
             heart.innerHTML = "❤";
             heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = Math.random() * 15 + 20 + "px"; // tamanho médio
-            heart.style.animationDuration = Math.random() * 3 + 3 + "s"; // 3-6s
+            heart.style.fontSize = Math.random() * 15 + 20 + "px";
+            heart.style.animationDuration = Math.random() * 3 + 3 + "s";
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 6000);
         }
-        setInterval(criarCoracao, 200); // corações contínuos
+        setInterval(criarCoracao, 200);
 
-        // ==== Botão SIM ====
         document.getElementById("btnSim").addEventListener("click", () => {
             window.open("https://vt.tiktok.com/ZSfeqfQ6D/", "_blank");
         });
 
-        // ==== Botão NÃO ====
         let cliquesNao = 0;
         const btnNao = document.getElementById("btnNao");
 
         btnNao.addEventListener("click", () => {
-            // Área visível da tela
             const largura = window.innerWidth - btnNao.offsetWidth;
             const altura = window.innerHeight - btnNao.offsetHeight;
 
-            const x = Math.random() * largura;
-            const y = Math.random() * altura;
-
-            btnNao.style.left = x + "px";
-            btnNao.style.top = y + "px";
+            btnNao.style.left = Math.random() * largura + "px";
+            btnNao.style.top = Math.random() * altura + "px";
 
             cliquesNao++;
             if (cliquesNao >= 3) {
-                document.getElementById("resultado").innerText = "Nossa, você não quer mesmo, aceita logo 🔪☠😍";
+                document.getElementById("resultado").innerText =
+                    "Nossa, você não quer mesmo, aceita logo 🔪☠😍";
             }
         });
     </script>
